@@ -16,7 +16,7 @@ export class MaterialPageComponent {
 
     constructor(private readonly matDialog: MatDialog) {}
 
-    onLikeTheme (): void {
+    onLikeTheme(): void {
         this.matDialog.open(this.merciDialogContentRef);
     }
 }
