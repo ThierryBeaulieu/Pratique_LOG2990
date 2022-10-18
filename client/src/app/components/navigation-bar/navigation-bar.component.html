@@ -1,6 +1,11 @@
-<mat-toolbar [ngClass]="favoriteTheme" color="primary">
+<mat-toolbar [ngClass]="favoriteTheme" color="primary" class="main-bar">
     <button mat-icon-button aria-label="home icon button" routerLink="/home">
         <mat-icon>home</mat-icon>
     </button>
+
     <span>Recettes HP</span>
+
+    <button mat-flat-button aria-label="Material page" color="primary" routerLink="/material" class="main-menu-buttons">Material</button>
+
+    <button mat-flat-button aria-label="About page" color="primary" routerLink="/about" class="main-menu-buttons">About</button>
 </mat-toolbar>
