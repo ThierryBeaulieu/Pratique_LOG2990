@@ -39,9 +39,32 @@ describe('SocketClientService', () => {
         expect(service.isSocketAlive()).toBeFalsy();
     });
 
-    it('should call socket.on with an event', () => {});
+    it('should call socket.on with an event', () => {
+        const event = 'hello world';
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        const action = () => {};
+        const spy = spyOn(service.socket, 'on');
+        service.socket.on(event, action);
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledWith(event, action);
+    });
 
-    it('should call emit with data when using send', () => {});
+    it('should call emit with data when using send', () => {
+        const event = 'hello world';
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        const action = () => {};
+        const spy = spyOn(service.socket, 'emit');
+        service.send(event, action);
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledWith(event, action);
+    });
 
-    it('should call emit without data when using send if data is undefined', () => {});
+    it('should call emit without data when using send if data is undefined', () => {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        const event = 'hello world';
+        const spy = spyOn(service.socket, 'emit');
+        service.send(event);
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledWith(event);
+    });
 });
