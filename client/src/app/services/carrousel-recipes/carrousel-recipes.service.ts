@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Recipe } from '@app/interfaces/recipe';
 import { RecipeService } from '@app/services/recipe.service.ts/recipe.service';
 
 @Injectable({
@@ -10,4 +11,16 @@ export class CarrouselRecipesService {
         this.currentIndex = 0;
     }
 
+    getInitial2Recipes(): Recipe[] {
+        const activeRecipes: Recipe[] = [];
+        const firstRecipe = this.recipeService.getRecipeByIndex(this.currentIndex);
+        if (firstRecipe !== undefined) {
+            activeRecipes.push(firstRecipe);
+        }
+        const secondRecipe = this.recipeService.getRecipeByIndex(this.currentIndex + 1);
+        if (secondRecipe !== undefined) {
+            activeRecipes.push(secondRecipe);
+        }
+        return activeRecipes;
+    }
 }
