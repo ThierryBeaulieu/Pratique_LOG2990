@@ -22,22 +22,22 @@ export class AppComponent implements OnInit {
 
     constructor(public socketService: SocketClientService) {}
 
-    get socketId () {
+    get socketId() {
         return this.socketService.socket.id ? this.socketService.socket.id : '';
     }
 
-    ngOnInit (): void {
+    ngOnInit(): void {
         this.connect();
     }
 
-    connect () {
+    connect() {
         if (!this.socketService.isSocketAlive()) {
             this.socketService.connect();
             this.configureBaseSocketFeatures();
         }
     }
 
-    configureBaseSocketFeatures () {
+    configureBaseSocketFeatures() {
         this.socketService.on('connect', () => {
             // eslint-disable-next-line no-console
             console.log(`Connexion par WebSocket sur le socket ${this.socketId}`);
@@ -69,26 +69,26 @@ export class AppComponent implements OnInit {
         });
     }
 
-    sendWordValidation () {
+    sendWordValidation() {
         this.socketService.send('validate', this.wordInput);
         this.wordInput = '';
     }
 
-    sendToServer () {
+    sendToServer() {
         this.socketService.send('message', this.messageToServer);
         this.messageToServer = '';
     }
 
-    broadcastMessageToAll () {
+    broadcastMessageToAll() {
         this.socketService.send('broadcastAll', this.broadcastMessage);
         this.broadcastMessage = '';
     }
 
-    joinRoom () {
+    joinRoom() {
         this.socketService.send('joinRoom');
     }
 
-    sendToRoom () {
+    sendToRoom() {
         this.socketService.send('roomMessage', this.roomMessage);
         this.roomMessage = '';
     }
