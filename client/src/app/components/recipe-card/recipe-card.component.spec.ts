@@ -21,8 +21,8 @@ describe('RecipeCardComponent', () => {
 
         fixture = TestBed.createComponent(RecipeCardComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
         component.recipe = DEFAULT_RECIPE;
+        fixture.detectChanges();
     });
 
     it('should create', () => {
