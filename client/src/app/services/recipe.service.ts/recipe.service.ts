@@ -23,6 +23,6 @@ export class RecipeService {
         return;
     }
     isIndexOutOfRange(index: number): boolean {
-        return index < 0 && index >= this.allRecipes.length;
+        return index < 0 || index >= this.allRecipes.length;
     }
 }

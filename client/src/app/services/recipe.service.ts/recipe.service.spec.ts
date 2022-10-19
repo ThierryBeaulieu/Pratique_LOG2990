@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { DEFAULT_RECIPES } from '@app/contants/default-recipes';
 import { Recipe } from '@app/interfaces/recipe';
+import { BASIC_TESTING_RECIPES } from '@app/services/carrousel-recipes/carrousel-recipe.service.constants';
 
 import { RecipeService } from './recipe.service';
-const TEST_RECIPES = DEFAULT_RECIPES;
+const TEST_RECIPES = BASIC_TESTING_RECIPES;
 
 describe('RecipeService', () => {
     let service: RecipeService;

@@ -14,15 +14,21 @@ describe('CarrouselRecipesService', () => {
             'getRecipeByIndex',
             'isIndexOutOfRange',
         ]);
+        TestBed.configureTestingModule({
+            providers: [{ provide: RecipeService, useValue: spyRecipeService }],
+        });
         spyRecipeService.getAllRecipes.and.callFake(() => {
             return BASIC_TESTING_RECIPES;
         });
-        TestBed.configureTestingModule({});
         service = TestBed.inject(CarrouselRecipesService);
     });
 
     it('CarrouselRecipesService should be created', () => {
         expect(service).toBeTruthy();
+    });
+
+    it('showCurrentRecipes() should give the current recipes based on its index', () => {
+        expect(spyRecipeService.getAllRecipes).toHaveBeenCalled();
     });
 
     it('showCurrentRecipes() should give the current recipes based on its index', () => {
