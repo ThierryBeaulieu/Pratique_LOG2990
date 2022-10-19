@@ -20,6 +20,9 @@ describe('CarrouselRecipesService', () => {
         service = TestBed.inject(CarrouselRecipesService);
         // eslint-disable-next-line dot-notation
         service['recipeService']['allRecipes'] = BASIC_TESTING_RECIPES;
+
+        // eslint-disable-next-line dot-notation
+        spyRecipeService['allRecipes'] = BASIC_TESTING_RECIPES;
     });
 
     it('CarrouselRecipesService should be created', () => {
@@ -27,43 +30,18 @@ describe('CarrouselRecipesService', () => {
     });
 
     it('showCurrentRecipes() should give the current recipes based on its index at the beginning', () => {
+        service.showCurrentRecipes();
         expect(spyRecipeService.getRecipeByIndex).toHaveBeenCalledWith(0);
         expect(spyRecipeService.getRecipeByIndex).toHaveBeenCalledWith(1);
-        expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
-    });
-
-    it('showCurrentRecipes() should give the current recipes based on its index', () => {
-        const recipes = service.showCurrentRecipes();
-        expect(recipes).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
     });
 
     it("scrollNext2Recipes() should return true if it's possible to scroll the next 2 recipes", () => {
-        expect(service.scrollNext2Recipes()).toBeTruthy();
-    });
-
-    it("scrollNext2Recipes() should return false if it's impossible to scroll the next 2 recipes", () => {
         service.scrollNext2Recipes();
-        expect(service.scrollNext2Recipes()).toBeFalsy();
+        expect(spyRecipeService.isIndexOutOfRange).toHaveBeenCalled();
     });
 
     it("scrollBack2Recipes() should return true if it's possible to scroll back 2 recipes", () => {
-        service.scrollNext2Recipes();
-        expect(service.scrollBack2Recipes()).toBeTruthy();
-    });
-
-    it("scrollBack2Recipes() should return false if it's impossible to scroll back 2 recipes", () => {
-        service.scrollNext2Recipes();
-        expect(service.scrollNext2Recipes()).toBeFalsy();
-    });
-
-    it('showCurrentRecipes() should show one available recipe after calling scrollNext2Recipes()', () => {
-        service.scrollNext2Recipes();
-        expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[2]]);
-    });
-
-    it('showCurrentRecipes() should show two recipes after calling scrollBack2Recipes()', () => {
-        service.scrollNext2Recipes();
         service.scrollBack2Recipes();
-        expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
+        expect(spyRecipeService.isIndexOutOfRange).toHaveBeenCalled();
     });
 });

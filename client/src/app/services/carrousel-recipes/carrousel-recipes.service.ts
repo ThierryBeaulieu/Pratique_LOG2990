@@ -23,18 +23,14 @@ export class CarrouselRecipesService {
         }
         return activeRecipes;
     }
-    scrollNext2Recipes(): boolean {
+    scrollNext2Recipes(): void {
         if (!this.recipeService.isIndexOutOfRange(this.currentIndex + 2)) {
             this.currentIndex = this.currentIndex + 2;
-            return true;
         }
-        return false;
     }
-    scrollBack2Recipes(): boolean {
+    scrollBack2Recipes(): void {
         if (!this.recipeService.isIndexOutOfRange(this.currentIndex - 2)) {
             this.currentIndex = this.currentIndex - 2;
-            return true;
         }
-        return false;
     }
 }
