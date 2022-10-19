@@ -10,11 +10,14 @@ export class SocketManager {
 
     handleSockets(): void {
         this.sio.on('connection', (socket) => {
+            // eslint-disable-next-line no-console
             console.log(`Connexion par l'utilisateur avec id : ${socket.id}`);
+
             // message initial
             socket.emit('hello', 'Hello World!');
 
             socket.on('message', (message: string) => {
+                // eslint-disable-next-line no-console
                 console.log(message);
             });
             socket.on('validate', (word: string) => {
@@ -38,13 +41,16 @@ export class SocketManager {
             });
 
             socket.on('disconnect', (reason) => {
+                // eslint-disable-next-line no-console
                 console.log(`Deconnexion par l'utilisateur avec id : ${socket.id}`);
+                // eslint-disable-next-line no-console
                 console.log(`Raison de deconnexion : ${reason}`);
             });
         });
 
         setInterval(() => {
             this.emitTime();
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         }, 1000);
     }
 

@@ -15,13 +15,15 @@ describe('SocketManager service tests', () => {
     beforeEach(async () => {
         server = Container.get(Server);
         server.init();
-        service = server.socketManager;
+        // eslint-disable-next-line dot-notation
+        service = server['socketManager'];
         clientSocket = ioClient(urlString);
     });
 
     afterEach(() => {
         clientSocket.close();
-        service.sio.close();
+        // eslint-disable-next-line dot-notation
+        service['sio'].close();
         sinon.restore();
     });
 
@@ -99,12 +101,15 @@ describe('SocketManager service tests', () => {
     });
 
     it('should broadcast to all sockets when emiting time', () => {
-        const spy = sinon.spy(service.sio.sockets, 'emit');
-        service.emitTime();
+        // eslint-disable-next-line dot-notation
+        const spy = sinon.spy(service['sio'].sockets, 'emit');
+        // eslint-disable-next-line dot-notation
+        service['emitTime']();
         assert(spy.called);
     });
 
     it('should call emitTime on socket configuration', (done) => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const spy = sinon.spy(service, <unknown>'emitTime');
         setTimeout(() => {
             assert(spy.called);
