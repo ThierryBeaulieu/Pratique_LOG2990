@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { DEFAULT_RECIPES } from '@app/contants/default-recipes';
 import { Recipe } from '@app/interfaces/recipe';
 import { BASIC_TESTING_RECIPES } from '@app/services/carrousel-recipes/carrousel-recipe.service.constants';
 
@@ -20,7 +19,7 @@ describe('RecipeService', () => {
         expect(service).toBeTruthy();
     });
     it('getAllRecipes() should return all of the recipes', () => {
-        expect(service.getAllRecipes()).toEqual(DEFAULT_RECIPES);
+        expect(service.getAllRecipes()).toEqual(TEST_RECIPES);
     });
     it('addRecipe() should add a recipe to the recipes', () => {
         const newRecipe: Recipe = {
