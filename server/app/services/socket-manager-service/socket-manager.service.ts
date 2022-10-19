@@ -21,7 +21,8 @@ export class SocketManager {
                 console.log(message);
             });
             socket.on('validate', (word: string) => {
-                const isValid = word.length > 5;
+                const maxLength = 5;
+                const isValid = word.length > maxLength;
                 socket.emit('wordValidated', isValid);
             });
 
