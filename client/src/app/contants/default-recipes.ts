@@ -14,6 +14,8 @@ export const DEFAULT_RECIPES: Recipe[] = [
             'Broyer les amandes',
             'Mélanger le tout',
         ],
-        stars: 4,
+        stars: 3,
     },
 ];
+
+export const DEFAULT_NB_STARS = 5;
