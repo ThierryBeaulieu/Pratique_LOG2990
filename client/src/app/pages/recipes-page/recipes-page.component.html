@@ -1,8 +1,4 @@
 <app-navigation-bar></app-navigation-bar>
-<div *ngFor="let recipe of recipes">
-    <ul>
-        <li>
-            <app-recipe-card [recipe]="recipe"></app-recipe-card>
-        </li>
-    </ul>
+<div *ngFor="let recipe of allRecipes">
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
 </div>

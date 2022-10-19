@@ -8,9 +8,11 @@ import { Recipe } from '@app/interfaces/recipe';
     styleUrls: ['./recipes-page.component.scss'],
 })
 export class RecipesPageComponent implements OnInit {
-    recipes: Recipe[];
+    allRecipes: Recipe[];
+    shownRecipes: Recipe[];
 
     ngOnInit(): void {
-        this.recipes = DEFAULT_RECIPES;
+        this.allRecipes = DEFAULT_RECIPES;
+        this.shownRecipes = [];
     }
 }

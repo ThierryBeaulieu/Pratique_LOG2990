@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DEFAULT_RECIPES } from '@app/contants/default-recipes';
 
 import { RecipesPageComponent } from './recipes-page.component';
 
@@ -18,5 +19,9 @@ describe('RecipesPageComponent', () => {
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('allRecipes should be initialized', () => {
+        expect(component.allRecipes).toEqual(DEFAULT_RECIPES);
     });
 });
