@@ -1,6 +1,6 @@
 <mat-card class="recipe-card" color="primary">
-    <mat-card-title>{{ getRecipeName() }}</mat-card-title>
-    <img mat-card-image src="{{ getImg() }}" />
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <img mat-card-image src="{{ recipe.img }}" />
     <mat-card-title>Rating</mat-card-title>
     <span *ngFor="let star of [1, 2, 3]"><mat-icon color="accent">star</mat-icon></span>
 </mat-card>
