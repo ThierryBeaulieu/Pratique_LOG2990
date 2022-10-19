@@ -2,6 +2,7 @@ import { Recipe } from '@app/interfaces/recipe';
 
 export const DEFAULT_RECIPES: Recipe[] = [
     {
+        id: '0',
         name: 'Salade de légumes',
         img: './assets/salade-img.bmp',
         ingredients: ['Feuilles vertes', 'concombre', 'amandes', 'tomates cerises'],
@@ -17,6 +18,7 @@ export const DEFAULT_RECIPES: Recipe[] = [
         stars: 3,
     },
     {
+        id: '1',
         name: 'Brochettes de poulet',
         img: './assets/brochette.bmp',
         ingredients: ['Feuilles vertes', 'poulet', 'piment rouge', 'tomates cerises'],
@@ -32,6 +34,7 @@ export const DEFAULT_RECIPES: Recipe[] = [
         stars: 4,
     },
     {
+        id: '2',
         name: 'Couscous royale',
         img: './assets/couscous-royale.bmp',
         ingredients: ['Couscous royale', 'poulet', 'piment rouge', 'tomates cerises'],

@@ -3,6 +3,7 @@ import { RecipeCardComponent } from '@app/components/recipe-card/recipe-card.com
 import { Recipe } from '@app/interfaces/recipe';
 
 const DEFAULT_RECIPE: Recipe = {
+    id: '1',
     name: 'testName',
     ingredients: [],
     img: 'imgLink',
