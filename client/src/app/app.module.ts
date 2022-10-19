@@ -16,6 +16,7 @@ import { MaterialPageComponent } from '@app/pages/material-page/material-page.co
 import { RecipesPageComponent } from './pages/recipes-page/recipes-page.component';
 import { ForumPageComponent } from './pages/forum-page/forum-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 
 /**
  * Main module that is used in main.ts.
@@ -36,6 +37,7 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
         RecipesPageComponent,
         ForumPageComponent,
         AdminPageComponent,
+        RecipeCardComponent,
     ],
     imports: [AppMaterialModule, AppRoutingModule, BrowserAnimationsModule, BrowserModule, FormsModule, HttpClientModule],
     providers: [],
