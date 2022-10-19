@@ -23,12 +23,18 @@ export class CarrouselRecipesService {
         }
         return activeRecipes;
     }
-    scrollNext2Recipes(): void {
-        this.recipeService.isIndexOutOfRange(this.currentIndex + 2);
-        this.currentIndex = this.currentIndex + 2;
+    scrollNext2Recipes(): boolean {
+        if (!this.recipeService.isIndexOutOfRange(this.currentIndex + 2)) {
+            this.currentIndex = this.currentIndex + 2;
+            return true;
+        }
+        return false;
     }
-    scrollBack2Recipes(): void {
-        this.recipeService.isIndexOutOfRange(this.currentIndex - 2);
-        this.currentIndex = this.currentIndex - 2;
+    scrollBack2Recipes(): boolean {
+        if (!this.recipeService.isIndexOutOfRange(this.currentIndex - 2)) {
+            this.currentIndex = this.currentIndex - 2;
+            return true;
+        }
+        return false;
     }
 }

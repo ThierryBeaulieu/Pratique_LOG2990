@@ -18,4 +18,13 @@ const secondRecipe: Recipe = {
     stars: 3,
 };
 
-export const BASIC_TESTING_RECIPES: Recipe[] = [firstRecipe, secondRecipe];
+const thirdRecipe: Recipe = {
+    id: '2',
+    name: 'thirdRecipe',
+    img: '',
+    ingredients: [],
+    steps: [],
+    stars: 3,
+};
+
+export const BASIC_TESTING_RECIPES: Recipe[] = [firstRecipe, secondRecipe, thirdRecipe];
