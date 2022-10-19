@@ -17,4 +17,16 @@ describe('CarrouselMenuComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('showBack2Recipes() should send an event when called', () => {
+        spyOn(component.notify, 'emit');
+        component.showBack2Recipes();
+        expect(component.notify.emit).toHaveBeenCalled();
+    });
+
+    it('showNext2Recipes() should send an event when called', () => {
+        spyOn(component.notify, 'emit');
+        component.showNext2Recipes();
+        expect(component.notify.emit).toHaveBeenCalled();
+    });
 });
