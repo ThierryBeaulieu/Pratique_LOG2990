@@ -40,8 +40,44 @@ describe('CarrouselRecipesService', () => {
         expect(spyRecipeService.isIndexOutOfRange).toHaveBeenCalled();
     });
 
+    it("scrollNext2Recipes() should return true if it's possible to scroll the next 2 recipes", () => {
+        spyRecipeService.isIndexOutOfRange = jasmine.createSpy().and.callFake(() => {
+            return false;
+        });
+        service.scrollNext2Recipes();
+        // eslint-disable-next-line dot-notation
+        expect(service['currentIndex']).toEqual(2);
+    });
+
+    it("scrollNext2Recipes() should return true if it's possible to scroll the next 2 recipes", () => {
+        spyRecipeService.isIndexOutOfRange = jasmine.createSpy().and.callFake(() => {
+            return true;
+        });
+        service.scrollNext2Recipes();
+        // eslint-disable-next-line dot-notation
+        expect(service['currentIndex']).toEqual(0);
+    });
+
     it("scrollBack2Recipes() should return true if it's possible to scroll back 2 recipes", () => {
         service.scrollBack2Recipes();
         expect(spyRecipeService.isIndexOutOfRange).toHaveBeenCalled();
+    });
+
+    it("scrollBack2Recipes() should return true if it's possible to scroll the next 2 recipes", () => {
+        spyRecipeService.isIndexOutOfRange = jasmine.createSpy().and.callFake(() => {
+            return true;
+        });
+        service.scrollBack2Recipes();
+        // eslint-disable-next-line dot-notation
+        expect(service['currentIndex']).toEqual(0);
+    });
+    it("scrollBack2Recipes() should return true if it's possible to scroll the next 2 recipes", () => {
+        spyRecipeService.isIndexOutOfRange = jasmine.createSpy().and.callFake(() => {
+            return true;
+        });
+        service.scrollNext2Recipes();
+        service.scrollBack2Recipes();
+        // eslint-disable-next-line dot-notation
+        expect(service['currentIndex']).toEqual(0);
     });
 });
