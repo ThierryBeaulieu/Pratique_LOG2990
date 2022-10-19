@@ -1,5 +1,4 @@
-import { Component, Output } from '@angular/core';
-import { EventEmitter } from 'stream';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-carrousel-menu',
@@ -7,7 +6,7 @@ import { EventEmitter } from 'stream';
     styleUrls: ['./carrousel-menu.component.scss'],
 })
 export class CarrouselMenuComponent {
-    @Output() notify = new EventEmitter();
+    @Output() notify = new EventEmitter<string>();
 
     showBack2Recipes(): void {
         this.notify.emit('showBack2Recipes');

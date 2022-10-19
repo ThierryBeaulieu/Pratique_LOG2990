@@ -15,4 +15,20 @@ export class AdminPageComponent implements OnInit {
         this.allRecipes = DEFAULT_RECIPES;
         this.shownRecipes = [];
     }
+
+    onNotify(name: string): void {
+        if (name === 'showNext2Recipes') {
+            this.showNext2Recipes();
+        }
+        if (name === 'showBack2Recipes') {
+            this.showNext2Recipes();
+        }
+    }
+
+    showNext2Recipes(): void {
+        console.log('showing next 2 recipes');
+    }
+    showBack2Recipes(): void {
+        console.log('showing back 2 recipes');
+    }
 }
