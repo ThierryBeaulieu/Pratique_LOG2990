@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DEFAULT_RECIPES } from '@app/contants/default-recipes';
 import { Recipe } from '@app/interfaces/recipe';
+import { CarrouselRecipesService } from '@app/services/carrousel-recipes/carrousel-recipes.service';
 
 @Component({
     selector: 'app-carrousel',
@@ -10,8 +10,10 @@ import { Recipe } from '@app/interfaces/recipe';
 export class CarrouselComponent implements OnInit {
     shownRecipes: Recipe[];
 
+    constructor(private readonly carrouselRecipeService: CarrouselRecipesService) {}
+
     ngOnInit(): void {
-        this.shownRecipes = DEFAULT_RECIPES;
+        this.shownRecipes = this.carrouselRecipeService.showCurrentRecipes();
     }
 
     onNotify(name: string): void {
@@ -19,14 +21,16 @@ export class CarrouselComponent implements OnInit {
             this.showNext2Recipes();
         }
         if (name === 'showBack2Recipes') {
-            this.showNext2Recipes();
+            this.showBack2Recipes();
         }
     }
 
     showNext2Recipes(): void {
-        console.log('showing next 2 recipes');
+        this.carrouselRecipeService.scrollNext2Recipes();
+        this.shownRecipes = this.carrouselRecipeService.showCurrentRecipes();
     }
     showBack2Recipes(): void {
-        console.log('showing back 2 recipes');
+        this.carrouselRecipeService.scrollBack2Recipes();
+        this.shownRecipes = this.carrouselRecipeService.showCurrentRecipes();
     }
 }

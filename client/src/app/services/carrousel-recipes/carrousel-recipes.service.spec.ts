@@ -27,6 +27,8 @@ describe('CarrouselRecipesService', () => {
     });
 
     it('showCurrentRecipes() should give the current recipes based on its index at the beginning', () => {
+        expect(spyRecipeService.getRecipeByIndex).toHaveBeenCalledWith(0);
+        expect(spyRecipeService.getRecipeByIndex).toHaveBeenCalledWith(1);
         expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
     });
 
