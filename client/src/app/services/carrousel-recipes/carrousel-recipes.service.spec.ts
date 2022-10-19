@@ -17,9 +17,7 @@ describe('CarrouselRecipesService', () => {
         TestBed.configureTestingModule({
             providers: [{ provide: RecipeService, useValue: spyRecipeService }],
         });
-        spyRecipeService.getAllRecipes.and.callFake(() => {
-            return BASIC_TESTING_RECIPES;
-        });
+
         service = TestBed.inject(CarrouselRecipesService);
     });
 
@@ -32,7 +30,11 @@ describe('CarrouselRecipesService', () => {
     });
 
     it('showCurrentRecipes() should give the current recipes based on its index', () => {
-        expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
+        spyRecipeService.getAllRecipes.and.callFake(() => {
+            return BASIC_TESTING_RECIPES;
+        });
+        const recipes = service.showCurrentRecipes();
+        expect(recipes).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
     });
 
     it("scrollNext2Recipes() should return true if it's possible to scroll the next 2 recipes", () => {
@@ -50,6 +52,7 @@ describe('CarrouselRecipesService', () => {
     });
 
     it("scrollBack2Recipes() should return false if it's impossible to scroll back 2 recipes", () => {
+        service.scrollNext2Recipes();
         expect(service.scrollNext2Recipes()).toBeFalsy();
     });
 
@@ -58,7 +61,7 @@ describe('CarrouselRecipesService', () => {
         expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[2]]);
     });
 
-    it('showCurrentRecipes() should show one available recipe after calling scrollBack2Recipes()', () => {
+    it('showCurrentRecipes() should show two recipe after calling scrollBack2Recipes()', () => {
         service.scrollNext2Recipes();
         service.scrollBack2Recipes();
         expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
