@@ -61,7 +61,7 @@ describe('CarrouselRecipesService', () => {
         expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[2]]);
     });
 
-    it('showCurrentRecipes() should show two recipe after calling scrollBack2Recipes()', () => {
+    it('showCurrentRecipes() should show two recipes after calling scrollBack2Recipes()', () => {
         service.scrollNext2Recipes();
         service.scrollBack2Recipes();
         expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
