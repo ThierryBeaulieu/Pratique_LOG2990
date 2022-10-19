@@ -13,4 +13,8 @@ describe('CarrouselRecipesService', () => {
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
+
+    it('showCurrentRecipes() should give the current recipes based on its index', () => {
+        expect(service.showCurrentRecipes()).toEqual([]);
+    });
 });

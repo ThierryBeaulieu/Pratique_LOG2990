@@ -11,7 +11,7 @@ export class CarrouselRecipesService {
         this.currentIndex = 0;
     }
 
-    getInitial2Recipes(): Recipe[] {
+    showCurrentRecipes(): Recipe[] {
         const activeRecipes: Recipe[] = [];
         const firstRecipe = this.recipeService.getRecipeByIndex(this.currentIndex);
         if (firstRecipe !== undefined) {
@@ -22,5 +22,8 @@ export class CarrouselRecipesService {
             activeRecipes.push(secondRecipe);
         }
         return activeRecipes;
+    }
+    (): void {
+
     }
 }
