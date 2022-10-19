@@ -23,7 +23,6 @@ export class CarrouselRecipesService {
         }
         return activeRecipes;
     }
-    (): void {
-
-    }
+    scrollNext2Recipes(): void {}
+    scrollBack2Recipes(): void {}
 }
