@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RecipeService } from '@app/services/recipe.service.ts/recipe.service';
 
 @Component({
     selector: 'app-carrousel-menu',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./carrousel-menu.component.scss'],
 })
 export class CarrouselMenuComponent {
-    showBack2Recipes(): void {}
+    constructor(private readonly recipeService: RecipeService) {}
+
+    showBack2Recipes(): void {
+        
+    }
     showNext2Recipes(): void {}
 }
