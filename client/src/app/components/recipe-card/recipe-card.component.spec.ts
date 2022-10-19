@@ -5,7 +5,7 @@ import { Recipe } from '@app/interfaces/recipe';
 const DEFAULT_RECIPE: Recipe = {
     name: 'testName',
     ingredients: [],
-    img: '',
+    img: 'imgLink',
     steps: [],
     stars: 4,
 };
@@ -31,5 +31,8 @@ describe('RecipeCardComponent', () => {
 
     it('getRecipeName() should return the name of the recipe', () => {
         expect(component.getRecipeName()).toEqual('testName');
+    });
+    it('getImg() should return the img of the recipe', () => {
+        expect(component.getImg()).toEqual('imgLink');
     });
 });
