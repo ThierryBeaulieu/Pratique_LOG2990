@@ -17,9 +17,12 @@ export class RecipeService {
         return this.allRecipes;
     }
     getRecipeByIndex(index: number): Recipe | undefined {
-        if (index >= 0 && index < this.allRecipes.length) {
+        if (!this.isIndexOutOfRange(index)) {
             return this.allRecipes[index];
         }
         return;
+    }
+    isIndexOutOfRange(index: number): boolean {
+        return index < 0 && index >= this.allRecipes.length;
     }
 }

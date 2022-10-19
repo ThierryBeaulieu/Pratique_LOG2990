@@ -35,16 +35,25 @@ describe('RecipeService', () => {
         expect(allRecipes[allRecipes.length - 1]).toEqual(newRecipe);
     });
 
-    it('getRecipeByIndex() should return a recipe based on its index', () => {
+    it('getRecipeByIndex(...) should return a recipe based on its index', () => {
         expect(service.getRecipeByIndex(0)).toEqual(TEST_RECIPES[0]);
     });
 
-    it('getRecipeByIndex() should return undefined when given a negative index', () => {
+    it('getRecipeByIndex(...) should return undefined when given a negative index', () => {
         // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         expect(service.getRecipeByIndex(-1)).toEqual(undefined);
     });
 
-    it('getRecipeByIndex() should return undefined when given an index out of range', () => {
+    it('getRecipeByIndex(...) should return undefined when given an index out of range', () => {
         expect(service.getRecipeByIndex(service.getAllRecipes().length)).toEqual(undefined);
+    });
+
+    it('isOutOfRange(...) should return true when given an index out of range', () => {
+        expect(service.isIndexOutOfRange(service.getAllRecipes().length)).toEqual(true);
+    });
+
+    it('isOutOfRange(...) should return true when given an index out of range', () => {
+        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+        expect(service.isIndexOutOfRange(-1)).toEqual(true);
     });
 });
