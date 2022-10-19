@@ -17,5 +17,4 @@ export class RecipeCardComponent implements OnInit {
         this.ingredients = DEFAULT_RECIPES[0].ingredients;
         this.steps = DEFAULT_RECIPES[0].steps;
     }
-
 }
