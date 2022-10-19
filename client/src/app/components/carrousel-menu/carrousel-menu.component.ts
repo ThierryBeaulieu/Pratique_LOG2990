@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: './carrousel-menu.component.html',
     styleUrls: ['./carrousel-menu.component.scss'],
 })
-export class CarrouselMenuComponent {}
+export class CarrouselMenuComponent {
+    showBack2Recipes(): void {}
+    showNext2Recipes(): void {}
+}
