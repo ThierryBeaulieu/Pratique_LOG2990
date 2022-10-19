@@ -2,12 +2,4 @@
 <div class="space-under-nav-bar"></div>
 <app-admin-tool-bar></app-admin-tool-bar>
 <div class="space-under-nav-bar"></div>
-<div class="recipe-container">
-    <div *ngFor="let recipe of allRecipes">
-        <app-recipe-card [recipe]="recipe"></app-recipe-card>
-    </div>
-</div>
-<div class="space-between-img-and-carrousel"></div>
-<div class="navigation-carrousel">
-    <app-carrousel-menu (notify)="onNotify($event)"></app-carrousel-menu>
-</div>
+<app-carrousel></app-carrousel>

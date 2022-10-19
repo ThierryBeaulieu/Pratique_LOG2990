@@ -1,1 +1,9 @@
-<p>carrousel works!</p>
+<div class="recipe-container">
+    <div *ngFor="let recipe of shownRecipes">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+</div>
+<div class="space-between-img-and-carrousel"></div>
+<div class="navigation-carrousel">
+    <app-carrousel-menu (notify)="onNotify($event)"></app-carrousel-menu>
+</div>

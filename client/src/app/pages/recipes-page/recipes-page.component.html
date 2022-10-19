@@ -1,11 +1,3 @@
 <app-navigation-bar></app-navigation-bar>
 <div class="space-under-nav-bar"></div>
-<div class="recipe-container">
-    <div *ngFor="let recipe of allRecipes">
-        <app-recipe-card [recipe]="recipe"></app-recipe-card>
-    </div>
-</div>
-<div class="space-between-img-and-carrousel"></div>
-<div class="navigation-carrousel">
-    <app-carrousel-menu></app-carrousel-menu>
-</div>
+<app-carrousel></app-carrousel>
