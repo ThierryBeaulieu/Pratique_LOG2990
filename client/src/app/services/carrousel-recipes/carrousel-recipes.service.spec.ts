@@ -17,22 +17,20 @@ describe('CarrouselRecipesService', () => {
         TestBed.configureTestingModule({
             providers: [{ provide: RecipeService, useValue: spyRecipeService }],
         });
-
         service = TestBed.inject(CarrouselRecipesService);
+        // eslint-disable-next-line dot-notation
+        service['recipeService']['allRecipes'] = BASIC_TESTING_RECIPES;
     });
 
     it('CarrouselRecipesService should be created', () => {
         expect(service).toBeTruthy();
     });
 
-    it('showCurrentRecipes() should give the current recipes based on its index', () => {
-        expect(spyRecipeService.getAllRecipes).toHaveBeenCalled();
+    it('showCurrentRecipes() should give the current recipes based on its index at the beginning', () => {
+        expect(service.showCurrentRecipes()).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
     });
 
     it('showCurrentRecipes() should give the current recipes based on its index', () => {
-        spyRecipeService.getAllRecipes.and.callFake(() => {
-            return BASIC_TESTING_RECIPES;
-        });
         const recipes = service.showCurrentRecipes();
         expect(recipes).toEqual([BASIC_TESTING_RECIPES[0], BASIC_TESTING_RECIPES[1]]);
     });
