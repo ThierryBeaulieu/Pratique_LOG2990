@@ -14,5 +14,6 @@ export const DEFAULT_RECIPES: Recipe[] = [
             'Broyer les amandes',
             'Mélanger le tout',
         ],
+        stars: 4,
     },
 ];

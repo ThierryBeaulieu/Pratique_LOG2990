@@ -10,11 +10,13 @@ export class RecipeCardComponent implements OnInit {
     img: string;
     ingredients: string[];
     steps: string[];
+    stars: number;
 
     ngOnInit(): void {
         this.title = DEFAULT_RECIPES[0].title;
         this.img = DEFAULT_RECIPES[0].img;
         this.ingredients = DEFAULT_RECIPES[0].ingredients;
         this.steps = DEFAULT_RECIPES[0].steps;
+        this.stars = DEFAULT_RECIPES[0].stars;
     }
 }
