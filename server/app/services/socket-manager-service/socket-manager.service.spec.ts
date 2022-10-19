@@ -11,7 +11,7 @@ describe('SocketManager service tests', () => {
     let server: Server;
     let clientSocket: Socket;
 
-    const urlString = 'http://localhost:5020';
+    const urlString = 'http://localhost:3000';
     beforeEach(async () => {
         server = Container.get(Server);
         server.init();
