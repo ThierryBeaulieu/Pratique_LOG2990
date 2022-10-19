@@ -11,4 +11,7 @@ export class RecipeCardComponent {
     getRecipeName(): string {
         return this.recipe.name;
     }
+    getImg(): string {
+        return this.recipe.img;
+    }
 }

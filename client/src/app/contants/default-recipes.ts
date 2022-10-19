@@ -18,7 +18,7 @@ export const DEFAULT_RECIPES: Recipe[] = [
     },
     {
         name: 'Brochettes de poulet',
-        img: './assets/salade-img.bmp',
+        img: './assets/brochette.bmp',
         ingredients: ['Feuilles vertes', 'poulet', 'piment rouge', 'tomates cerises'],
         steps: [
             'Mettre le poulet dans un bol',
@@ -33,7 +33,7 @@ export const DEFAULT_RECIPES: Recipe[] = [
     },
     {
         name: 'Couscous royale',
-        img: './assets/salade-img.bmp',
+        img: './assets/couscous-royale.bmp',
         ingredients: ['Couscous royale', 'poulet', 'piment rouge', 'tomates cerises'],
         steps: [
             'Mettre le poulet dans un bol',
