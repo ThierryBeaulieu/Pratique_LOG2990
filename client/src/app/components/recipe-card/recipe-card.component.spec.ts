@@ -1,6 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RecipeCardComponent } from '@app/components/recipe-card/recipe-card.component';
+import { Recipe } from '@app/interfaces/recipe';
 
-import { RecipeCardComponent } from './recipe-card.component';
+const DEFAULT_RECIPE: Recipe = {
+    name: 'testName',
+    ingredients: [],
+    img: '',
+    steps: [],
+    stars: 4,
+};
 
 describe('RecipeCardComponent', () => {
     let component: RecipeCardComponent;
@@ -14,9 +22,14 @@ describe('RecipeCardComponent', () => {
         fixture = TestBed.createComponent(RecipeCardComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
+        component.recipe = DEFAULT_RECIPE;
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('getRecipeName() should return the name of the recipe', () => {
+        expect(component.getRecipeName()).toEqual('testName');
     });
 });

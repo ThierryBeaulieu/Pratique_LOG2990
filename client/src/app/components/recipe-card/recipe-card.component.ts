@@ -7,4 +7,8 @@ import { Recipe } from '@app/interfaces/recipe';
 })
 export class RecipeCardComponent {
     @Input() recipe: Recipe;
+
+    getRecipeName(): string {
+        return this.recipe.name;
+    }
 }
