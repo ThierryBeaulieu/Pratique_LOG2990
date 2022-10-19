@@ -1,0 +1,19 @@
+.toolbar-wrapper {
+    padding-right: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toolbar-container {
+    padding: 10px;
+    height: 5vh;
+    width: 10vw;
+}
+.no-shadow-button {
+    box-shadow: none !important;
+}
