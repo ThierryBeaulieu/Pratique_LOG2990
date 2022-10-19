@@ -42,7 +42,7 @@ describe('SocketManager service tests', () => {
         const testMessage = 'Hello World';
         clientSocket.emit('validate', testMessage);
         clientSocket.on('wordValidated', (result: boolean) => {
-            expect(result).to.be.true;
+            expect(result).to.equal(false);
             done();
         });
     });
@@ -51,7 +51,7 @@ describe('SocketManager service tests', () => {
         const testMessage = 'Hello';
         clientSocket.emit('validate', testMessage);
         clientSocket.on('wordValidated', (result: boolean) => {
-            expect(result).to.be.false;
+            expect(result).to.equal(false);
             done();
         });
     });
@@ -59,7 +59,8 @@ describe('SocketManager service tests', () => {
     it('should add the socket to the room after a join event', (done) => {
         clientSocket.emit('joinRoom');
         setTimeout(() => {
-            const newRoomSize = service.sio.sockets.adapter.rooms.get(service.room)?.size;
+            // eslint-disable-next-line dot-notation
+            const newRoomSize = service['sio'].sockets.adapter.rooms.get(service['room'])?.size;
             expect(newRoomSize).to.equal(1);
             done();
         }, RESPONSE_DELAY);
@@ -67,7 +68,8 @@ describe('SocketManager service tests', () => {
 
     it('should not broadcast message to room if origin socket is not in room', (done) => {
         const testMessage = 'Hello World';
-        const spy = sinon.spy(service.sio, 'to');
+        // eslint-disable-next-line dot-notation
+        const spy = sinon.spy(service['sio'], 'to');
         clientSocket.emit('roomMessage', testMessage);
 
         setTimeout(() => {
@@ -90,7 +92,8 @@ describe('SocketManager service tests', () => {
     it('should broadcast message to multiple clients on broadcastAll event', (done) => {
         const clientSocket2 = ioClient(urlString);
         const testMessage = 'Hello World';
-        const spy = sinon.spy(service.sio.sockets, 'emit');
+        // eslint-disable-next-line dot-notation
+        const spy = sinon.spy(service['sio'].sockets, 'emit');
         clientSocket.emit('broadcastAll', testMessage);
 
         clientSocket2.on('massMessage', (message: string) => {
@@ -109,11 +112,12 @@ describe('SocketManager service tests', () => {
     });
 
     it('should call emitTime on socket configuration', (done) => {
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        const spy = sinon.spy(service, <unknown>'emitTime');
+        const maxResponseDelay = 5;
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, @typescript-eslint/no-explicit-any
+        const spy = sinon.spy(service, <any>'emitTime');
         setTimeout(() => {
             assert(spy.called);
             done();
-        }, RESPONSE_DELAY * 5); // 1 seconde
+        }, RESPONSE_DELAY * maxResponseDelay); // 1 seconde
     });
 });
