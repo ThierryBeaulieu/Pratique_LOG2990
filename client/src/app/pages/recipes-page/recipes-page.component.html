@@ -1,2 +1,8 @@
-<app-navigation-bar></app-navigation-bar> Page de recettes!
-<app-recipe-card></app-recipe-card>
+<app-navigation-bar></app-navigation-bar>
+<div *ngFor="let recipe of recipes">
+    <ul>
+        <li>
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </li>
+    </ul>
+</div>
