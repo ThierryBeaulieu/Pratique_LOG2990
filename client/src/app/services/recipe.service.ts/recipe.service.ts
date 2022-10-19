@@ -6,8 +6,20 @@ import { Recipe } from '@app/interfaces/recipe';
     providedIn: 'root',
 })
 export class RecipeService {
-    allRecipes: Recipe[];
+    private allRecipes: Recipe[];
     constructor() {
         this.allRecipes = DEFAULT_RECIPES;
+    }
+    addRecipe(recipe: Recipe): void {
+        this.allRecipes.push(recipe);
+    }
+    getAllRecipes(): Recipe[] {
+        return this.allRecipes;
+    }
+    getRecipeByIndex(index: number): Recipe | undefined {
+        if (index >= 0 && index < this.allRecipes.length) {
+            return this.allRecipes[index];
+        }
+        return;
     }
 }
