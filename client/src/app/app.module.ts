@@ -18,6 +18,7 @@ import { ForumPageComponent } from './pages/forum-page/forum-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { CarrouselMenuComponent } from './components/carrousel-menu/carrousel-menu.component';
+import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-bar.component';
 
 /**
  * Main module that is used in main.ts.
@@ -40,6 +41,7 @@ import { CarrouselMenuComponent } from './components/carrousel-menu/carrousel-me
         AdminPageComponent,
         RecipeCardComponent,
         CarrouselMenuComponent,
+        AdminToolBarComponent,
     ],
     imports: [AppMaterialModule, AppRoutingModule, BrowserAnimationsModule, BrowserModule, FormsModule, HttpClientModule],
     providers: [],
