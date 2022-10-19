@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { AppMaterialModule } from '@app/modules/material.module';
 import { BASIC_TESTING_RECIPES } from '@app/services/carrousel-recipes/carrousel-recipe.service.constants';
 import { CarrouselRecipesService } from '@app/services/carrousel-recipes/carrousel-recipes.service';
 import { RecipeService } from '@app/services/recipe.service.ts/recipe.service';
@@ -16,6 +17,7 @@ describe('CarrouselRecipesService', () => {
         ]);
         TestBed.configureTestingModule({
             providers: [{ provide: RecipeService, useValue: spyRecipeService }],
+            imports: [AppMaterialModule],
         });
         service = TestBed.inject(CarrouselRecipesService);
         // eslint-disable-next-line dot-notation
