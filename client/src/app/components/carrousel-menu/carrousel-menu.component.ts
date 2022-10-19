@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RecipeService } from '@app/services/recipe.service.ts/recipe.service';
+import { Component, Output } from '@angular/core';
+import { EventEmitter } from 'stream';
 
 @Component({
     selector: 'app-carrousel-menu',
@@ -7,10 +7,12 @@ import { RecipeService } from '@app/services/recipe.service.ts/recipe.service';
     styleUrls: ['./carrousel-menu.component.scss'],
 })
 export class CarrouselMenuComponent {
-    constructor(private readonly recipeService: RecipeService) {}
+    @Output() notify = new EventEmitter();
 
     showBack2Recipes(): void {
-        
+        this.notify.emit('showBack2Recipes');
     }
-    showNext2Recipes(): void {}
+    showNext2Recipes(): void {
+        this.notify.emit('showNext2Recipes');
+    }
 }
