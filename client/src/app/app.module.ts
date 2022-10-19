@@ -14,6 +14,7 @@ import { GamePageComponent } from '@app/pages/game-page/game-page.component';
 import { MainPageComponent } from '@app/pages/main-page/main-page.component';
 import { MaterialPageComponent } from '@app/pages/material-page/material-page.component';
 import { RecipesPageComponent } from './pages/recipes-page/recipes-page.component';
+import { ForumPageComponent } from './pages/forum-page/forum-page.component';
 
 /**
  * Main module that is used in main.ts.
@@ -32,6 +33,7 @@ import { RecipesPageComponent } from './pages/recipes-page/recipes-page.componen
         NavigationBarComponent,
         AboutPageComponent,
         RecipesPageComponent,
+        ForumPageComponent,
     ],
     imports: [AppMaterialModule, AppRoutingModule, BrowserAnimationsModule, BrowserModule, FormsModule, HttpClientModule],
     providers: [],
