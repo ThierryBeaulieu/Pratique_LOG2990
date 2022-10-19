@@ -6,6 +6,7 @@ import { Socket } from 'socket.io-client';
 import { AppComponent } from './app.component';
 
 class SocketClientServiceMock extends SocketClientService {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     override connect() {}
 }
 
